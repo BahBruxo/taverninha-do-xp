@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taverninha do XP – Farm, Up e Boost para Games</title>
+<style>
+:root{--bg:#f1e2c3;--card:#fbf2dd;--tx:#2b1a0e;--mut:#6e5238;--ac:#b45309;--ac2:#9a3412;--bd:#d2b27d;--bt:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a0f08;--card:#2a1a0f;--tx:#f5e6c8;--mut:#c4a67a;--bd:#5a3a1e;--ac:#f59e0b;--ac2:#fbbf24;--bt:#2b1a0e}}
+:root[data-theme="dark"]{--bg:#1a0f08;--card:#2a1a0f;--tx:#f5e6c8;--mut:#c4a67a;--bd:#5a3a1e;--ac:#f59e0b;--ac2:#fbbf24;--bt:#2b1a0e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+.w{max-width:1050px;margin:auto;padding:0 18px}
+header{padding:56px 0 34px;text-align:center}
+.logo{font-weight:800;letter-spacing:.05em;color:var(--ac2)}
+h1{font-size:clamp(28px,6vw,46px);margin:10px 0;line-height:1.15}
+h1 span{background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+p.sub{color:var(--mut);max-width:560px;margin:0 auto 22px}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--ac),var(--ac2));color:var(--bt);border:0;padding:13px 24px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
+.perks{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.perks span{background:var(--card);border:1px solid var(--bd);padding:6px 12px;border-radius:99px;font-size:13px;color:var(--mut)}
+h2{margin:40px 0 14px;font-size:24px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.tabs button{flex:none;background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:8px 14px;border-radius:99px;cursor:pointer;font-size:14px}
+.tabs button.on{background:var(--ac);border-color:var(--ac);color:var(--bt)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:14px}
+.g{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px}
+.g h3{margin:0 0 4px;font-size:18px}
+.g .e{font-size:26px}
+.g ul{list-style:none;margin:8px 0 12px;padding:0;color:var(--mut);font-size:14px}.g li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--bd)}.g li b{color:var(--tx);white-space:nowrap}.info{list-style:disc;background:var(--card);border:2px solid var(--bd);border-radius:16px;padding:14px 18px 14px 36px;font-size:14px;color:var(--mut)}.info li{padding:3px 0}
+.g a{color:var(--ac2);font-weight:700;text-decoration:none;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.steps div{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;font-size:14px;color:var(--mut)}
+.steps b{display:block;color:var(--tx);margin-bottom:4px}
+form{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;display:grid;gap:10px}
+label{font-size:13px;color:var(--mut)}
+input,select,textarea{width:100%;padding:11px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--bd)}.nl{display:flex;gap:18px;font-size:14px}.nl a{color:var(--mut);text-decoration:none}.nl a:hover{color:var(--tx)}
+.tag{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ac2);border:1px solid var(--bd);padding:5px 12px;border-radius:99px;margin-bottom:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:30px}.stats div{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 8px;font-size:12px;color:var(--mut)}.stats b{display:block;font-size:20px;color:var(--tx)}
+.sub2{color:var(--mut);margin:-6px 0 14px}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.p{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px}.p.hot{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac)}.p h3{margin:0}.p .h{font-size:22px;font-weight:800;margin:6px 0;color:var(--ac2)}.p p{margin:0 0 12px;color:var(--mut);font-size:14px}.p .btn{display:block;text-align:center;padding:10px;font-size:14px}.bd{position:absolute;top:-10px;right:14px;background:var(--ac);color:var(--bt);font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px}
+h2{letter-spacing:-.01em}.g,.p,.stats div{transition:transform .15s}.g:hover,.p:hover{transform:translateY(-3px)}
+h1,h2,.logo,.p .h{font-family:Georgia,'Times New Roman',serif}
+body{background-image:repeating-linear-gradient(90deg,transparent 0 118px,rgba(60,30,10,.09) 118px 120px),repeating-linear-gradient(0deg,transparent 0 46px,rgba(60,30,10,.05) 46px 48px)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 8% 0,rgba(245,158,11,.25),transparent 40%),radial-gradient(circle at 92% 0,rgba(245,158,11,.25),transparent 40%);animation:flk 3s ease-in-out infinite alternate}
+@keyframes flk{50%{opacity:.6}}
+.w{position:relative;z-index:1}
+.g,.p,.stats div,form,.steps div{border-width:2px;box-shadow:0 3px 0 rgba(60,30,10,.28)}
+.mugs{display:flex;justify-content:center;align-items:flex-end;gap:18px;margin:26px 0 6px}
+.mug{width:64px;animation:cheers 3s ease-in-out infinite}.mug:nth-child(2){width:78px;animation-delay:.4s}.mug:nth-child(3){animation-delay:.8s}
+@keyframes cheers{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-8px)}}
+.xp{max-width:360px;margin:14px auto 0;height:22px;border:2px solid var(--bd);border-radius:99px;background:var(--card);position:relative;overflow:hidden;text-align:center}
+.xp i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));opacity:.55;animation:fill 4s ease-in-out infinite alternate}
+.xp span{position:relative;font-size:11px;font-weight:800;line-height:18px;letter-spacing:.08em}
+@keyframes fill{to{width:100%}}
+.fx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.em,.xpf{position:absolute;bottom:-24px;opacity:0;animation:rise linear infinite}
+.em{width:5px;height:5px;border-radius:50%;background:#f59e0b;box-shadow:0 0 8px 2px #f59e0b}
+.xpf{font-weight:800;font-size:13px;color:var(--ac)}
+@keyframes rise{10%{opacity:.9}100%{transform:translate(30px,-110vh);opacity:0}}
+@media (prefers-reduced-motion:reduce){*,body::before{animation:none!important}}
+.dc{background:#5865f2;color:#fff;margin-left:6px}.nl a.dcl{color:#5865f2;font-weight:700}
+footer{margin:40px 0 20px;color:var(--mut);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="w">
+<nav class="nav"><div class="logo">🍺 TAVERNINHA DO XP</div><div class="nl"><a href="#jogos">Jogos</a><a href="#pacotes">Pacotes</a><a href="#orcamento">Orçamento</a><a id="dcn" class="dcl" target="_blank" rel="noopener">Discord</a></div></nav>
+<header>
+  <div class="tag">Farmou, evoluiu, lucrou!</div>
+  <h1>Entre, sente e deixe o <span>XP por nossa conta</span></h1>
+  <p class="sub">Escolha seu jogo, seu objetivo e deixe o grind com a gente! Todos os valores são promocionais de lançamento.</p>
+  <a class="btn" href="#orcamento">Pedir orçamento</a> <a class="btn dc" id="dch" target="_blank" rel="noopener">💬 Entrar no Discord</a>
+  <div class="mugs" id="mugs"></div>
+  <div class="xp"><i></i><span>LVL ∞ · XP SEM LIMITES</span></div>
+  <div class="stats"><div><b>9</b>jogos atendidos</div><div><b>R$ 15</b>a partir de, por hora</div><div><b>100%</b>preço combinado antes</div><div><b>Sigilo</b>dados protegidos</div></div>
+</header>
+
+<h2 id="jogos">📜 Cardápio de jogos e serviços</h2>
+<div class="tabs" id="tabs"></div>
+<div class="grid" id="grid"></div>
+
+<h2 id="pacotes">🍻 Pacotes de grind</h2>
+<div class="pk" id="pk"></div>
+<h2>📅 Planos mensais</h2>
+<div class="pk" id="pm"></div>
+<p class="sub2" style="margin-top:12px">Os planos são limitados à disponibilidade de agenda. Não são serviços ilimitados.</p>
+
+<h2>🕯️ Como funciona na taverna</h2>
+<div class="steps">
+  <div><b>1. Abra um ticket</b>No nosso Discord.</div>
+  <div><b>2. Informe o pedido</b>Jogo e serviço desejado.</div>
+  <div><b>3. Receba o orçamento</b>Valor e prazo claros.</div>
+  <div><b>4. Confirme</b>Condições e disponibilidade.</div>
+  <div><b>5. Acompanhe</b>Veja seu pedido andando.</div>
+</div>
+<h2>📌 Informações importantes</h2>
+<ul class="info">
+  <li>Preços podem variar conforme dificuldade e disponibilidade.</li>
+  <li>Serviços personalizados recebem orçamento individual.</li>
+  <li>Nenhum resultado ou prazo é garantido quando depender de fatores externos.</li>
+  <li>Só realizamos atividades compatíveis com as regras dos jogos e plataformas.</li>
+  <li>Não solicitamos senhas ou códigos de autenticação.</li>
+</ul>
+
+<h2 id="orcamento">🪙 Faça seu pedido ao taverneiro</h2>
+<form id="f">
+  <div><label>Jogo</label><select id="jg"></select></div>
+  <div><label>Serviço</label><select id="sv"></select></div>
+  <div><label>Detalhes (nível atual, meta, prazo)</label><textarea id="dt" rows="3" placeholder="Ex.: do nível 50 ao 100, prazo de 1 semana"></textarea></div>
+  <button type="submit" class="btn">Enviar pelo Discord</button>
+</form>
+<footer>Serviços de terceiros podem violar os termos de uso de alguns jogos e gerar risco para a conta. Combine tudo antes de contratar.<br>© Taverninha do XP</footer>
+</div>
+<script>
+var DC="https://discord.gg/DMWsHRbahm";setTimeout(function(){["dcn","dch"].forEach(function(i){document.getElementById(i).href=DC})},0);
+var R=["Fortnite|🎯|Farm de XP – 1 hora=R$ 15;Farm de XP – 3 horas=R$ 40;Missões e desafios=R$ 15–30;Progressão de passe – 1 hora=R$ 15;Farm personalizado=Sob consulta", "Call of Duty / Warzone|🔫|Farm de XP – 1 hora=R$ 15;Farm de XP – 3 horas=R$ 40;Up de arma=R$ 15;Desbloqueio de acessórios=R$ 15;Camuflagem simples=R$ 15;Camuflagem intermediária=R$ 25;Camuflagem difícil=R$ 40;Progressão de passe – 1 hora=R$ 15", "Counter-Strike 2|💣|Farm de XP – 1 hora=R$ 15;Missões=R$ 15–30;Evolução de perfil – 1 hora=R$ 15;Objetivos personalizados=Sob consulta", "EA SPORTS FC|⚽|Objetivos do Ultimate Team=R$ 15–30;Evolução de jogadores – 1 hora=R$ 15;Desafios e recompensas=R$ 15–30;Grind personalizado=Sob consulta", "League of Legends|🧙|Farm de XP – 1 hora=R$ 15;Missões=R$ 15–30;Progressão de passe – 1 hora=R$ 15;Farm de recompensas=Sob consulta", "Valorant|🎯|Farm de XP – 1 hora=R$ 15;Missões diárias=R$ 10;Missões semanais=R$ 25;Progressão de passe – 1 hora=R$ 15", "Black Desert|🐉|Farm de XP – 1 hora=R$ 18;Farm de recursos – 1 hora=R$ 15;Grind de itens – 1 hora=R$ 18;Evolução de personagem=Sob consulta", "World of Warcraft|⚔️|Farm de XP – 1 hora=R$ 18;Farm de recursos – 1 hora=R$ 15;Farm de reputação – 1 hora=R$ 18;Missões e objetivos=R$ 15–35;Equipamentos=Sob consulta", "Albion Online|🏹|Farm de fama – 1 hora=R$ 15;Coleta de recursos – 1 hora=R$ 15;Evolução de armas – 1 hora=R$ 15;Farm de prata – 1 hora=R$ 18;Especializações=Sob consulta"];
+var D=R.map(function(r){var a=r.split("|");return{n:a[0],e:a[1],s:a[2].split(";").map(function(x){return x.split("=")})}});
+var cur="Todos",tabs=document.getElementById("tabs"),grid=document.getElementById("grid"),jg=document.getElementById("jg"),sv=document.getElementById("sv");
+function link(){return DC}
+function render(){
+  tabs.innerHTML="";
+  ["Todos"].concat(D.map(function(x){return x.n})).forEach(function(n){
+    var b=document.createElement("button");b.textContent=n;if(n===cur)b.className="on";
+    b.onclick=function(){cur=n;render()};tabs.appendChild(b)});
+  grid.innerHTML="";
+  D.filter(function(x){return cur==="Todos"||x.n===cur}).forEach(function(x){
+    var c=document.createElement("div");c.className="g";
+    c.innerHTML='<div class="e">'+x.e+'</div><h3>'+x.n+'</h3><ul>'+x.s.map(function(i){return "<li><span>"+i[0]+"</span><b>"+i[1]+"</b></li>"}).join("")+'</ul><a href="'+link(x.n)+'" target="_blank" rel="noopener">Valor a combinar no Discord →</a>';
+    grid.appendChild(c)});
+}
+var P=[["🍺 Iniciante","1 hora","R$ 15"],["🥉 Bronze","2 horas","R$ 28"],["🥈 Prata","3 horas","R$ 40"],["🥇 Ouro","5 horas","R$ 65"],["💎 Diamante","10 horas","R$ 120"],["👑 Lendário","20 horas","R$ 220"]];
+var M=[["Bronze","10h por mês","R$ 120"],["Prata","20h por mês","R$ 220"],["Ouro","40h por mês","R$ 420"],["Diamante","60h por mês","R$ 600"]];
+function box(a,id){a.forEach(function(p){var c=document.createElement("div");c.className="p";c.innerHTML="<h3>"+p[0]+"</h3><div class=\"h\">"+p[2]+"</div><p>"+p[1]+"</p><a class=\"btn\" target=\"_blank\" rel=\"noopener\" href=\""+DC+"\">Contratar</a>";document.getElementById(id).appendChild(c)})}
+box(P,"pk");box(M,"pm");
+D.forEach(function(x){var o=document.createElement("option");o.textContent=x.n;jg.appendChild(o)});
+function fillSv(){var g=D.filter(function(x){return x.n===jg.value})[0];sv.innerHTML="";g.s.map(function(i){return i[0]+" ("+i[1]+")"}).concat(["Pacote de grind (descrever abaixo)","Plano mensal (descrever abaixo)","Outro (descrever abaixo)"]).forEach(function(s){var o=document.createElement("option");o.textContent=s;sv.appendChild(o)})}
+jg.onchange=fillSv;fillSv();render();
+var MUG='<svg class="mug" viewBox="0 0 64 72"><path d="M46 28h5a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8h-5" fill="none" stroke="#8b5a2b" stroke-width="5"/><rect x="8" y="20" width="38" height="46" rx="5" fill="#fbbf24" stroke="#8b5a2b" stroke-width="3"/><rect x="8" y="32" width="38" height="3" fill="#8b5a2b"/><rect x="8" y="56" width="38" height="3" fill="#8b5a2b"/><text x="27" y="50" text-anchor="middle" font-size="13" font-weight="800" fill="#8b5a2b" font-family="Georgia,serif">XP</text><g fill="#fff8e7" stroke="#8b5a2b" stroke-width="1.5"><circle cx="16" cy="18" r="8"/><circle cx="27" cy="13" r="9"/><circle cx="38" cy="18" r="8"/></g></svg>';
+document.getElementById("mugs").innerHTML=MUG+MUG+MUG;
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){var fx=document.createElement("div");fx.className="fx";document.body.appendChild(fx);for(var i=0;i<22;i++){var s=document.createElement("span"),xp=i%3===0;s.className=xp?"xpf":"em";if(xp)s.textContent="+XP";s.style.left=Math.random()*100+"%";s.style.animationDuration=(7+Math.random()*9)+"s";s.style.animationDelay=(-Math.random()*12)+"s";fx.appendChild(s)}}
+document.getElementById("f").onsubmit=function(e){e.preventDefault();
+  var t="Olá! Quero orçamento. Jogo: "+jg.value+" | Serviço: "+sv.value+" | Detalhes: "+(document.getElementById("dt").value||"-");
+  try{navigator.clipboard.writeText(t)}catch(x){}e.target.querySelector("button").textContent="Pedido copiado! Cole no Discord ✔";window.open(DC,"_blank")};
+</script>
+</body>
+</html>
